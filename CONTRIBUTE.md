@@ -1,4 +1,4 @@
-# 🤝 Contributing to [VaultName] 🔐
+# Contributing to PassVault
 
 Thanks for checking out the project — you're awesome! 🎉  
 This app is a secure, offline-first password vault built with **SolidJS**, **Tauri**, **SQLite**, and **Rust**. We value **clean code**, **minimalism**, and **security-first thinking**.
@@ -13,7 +13,7 @@ This app is a secure, offline-first password vault built with **SolidJS**, **Tau
 ```bash
 git clone https://github.com/ejminguez/PassVault.git
 cd your-vault-app
-
+```
 
 ```
 cd src
@@ -44,7 +44,7 @@ cargo tauri dev
 │   │   ├── db.rs       # SQLite CRUD
 │   │   └── commands.rs # Tauri commands exposed to frontend
 └── tauri.conf.json     # Tauri configuration
-
+```
 
 ## 🎨 Code Style Guide
 #### Frontend (SolidJS + Vanilla CSS)
@@ -84,5 +84,5 @@ Since this is a password vault:
 
 ## 💬 Questions?
 Open an issue or start a discussion. We’re building this for fun, learning, and the love of minimal secure apps.
-Stay safe, stay curious 🧠✨
+Stay safe, stay curious 🧠✨\
 — ejminguez 🔐
