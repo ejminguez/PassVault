@@ -14,6 +14,7 @@ This app is a secure, offline-first password vault built with **SolidJS**, **Tau
 git clone https://github.com/ejminguez/PassVault.git
 cd your-vault-app
 
+
 ```
 cd src
 npm install
@@ -34,18 +35,16 @@ cargo tauri dev
 ├── src/                # SolidJS frontend
 │   ├── components/     # UI Components
 │   ├── routes/         # App views
-
 │   ├── utils/          # Helpers, password gen, etc.
 │   └── App.tsx         # Main entry point
 ├── src-tauri/          # Tauri Rust backend
 │   ├── src/
 │   │   ├── main.rs     # Tauri setup
 │   │   ├── crypto.rs   # Argon2 hashing, AES logic
-
 │   │   ├── db.rs       # SQLite CRUD
-
 │   │   └── commands.rs # Tauri commands exposed to frontend
 └── tauri.conf.json     # Tauri configuration
+
 
 ## 🎨 Code Style Guide
 #### Frontend (SolidJS + Vanilla CSS)
