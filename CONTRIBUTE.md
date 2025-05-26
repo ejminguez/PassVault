@@ -11,7 +11,7 @@ This app is a secure, offline-first password vault built with **SolidJS**, **Tau
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/your-username/your-vault-app.git
+git clone https://github.com/ejminguez/PassVault.git
 cd your-vault-app
 
 ```
