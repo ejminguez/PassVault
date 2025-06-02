@@ -1,6 +1,8 @@
 /* SKEUMORPHISM IS THE GOAT! */
+@import "./styles/dashboard.scss";
+@import "./styles/sidebar.scss";
 
-:root {
+root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -20,6 +22,8 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* GLOBAL STYLES */
 
 .inputs {
   border-radius: 5px;

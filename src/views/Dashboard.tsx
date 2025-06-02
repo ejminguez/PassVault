@@ -1,11 +1,18 @@
-// home view
+import Sidebar from "../components/Navigation/Sidebar";
 
 const Dashboard = () => {
   return (
-    <section>
-      <h1>Welcome back, Username!</h1>
-    </section>
-  )
-}
+    <section class="dashboard-container">
+      {/* SIDEBAR */}
+      <Sidebar />
 
-export default Dashboard
+      {/* LISTS */}
+      <div class="basic">2</div>
+
+      {/* PREVIEW */}
+      <div class="basic">3</div>
+    </section>
+  );
+};
+
+export default Dashboard;
