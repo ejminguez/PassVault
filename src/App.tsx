@@ -1,57 +1,48 @@
-import { createSignal } from "solid-js";
-import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import { createEffect, Show } from "solid-js";
+import { authState, initializeAuth, isLoading } from "./store/auth";
+import Setup from "./components/Auth/Setup";
+import LoginComponent from "./components/Auth/LoginComponent";
+import Dashboard from "./views/Dashboard";
+import ErrorBoundary from "./components/StateFeedback/ErrorBoundary";
+import { ToastContainer } from "./components/StateFeedback/Toast";
+import "./App.scss";
 
 function App() {
-  const [greetMsg, setGreetMsg] = createSignal("");
-  const [name, setName] = createSignal("");
-  const [password, setPassword] = createSignal("");
-  const [showPassword, setShowPassword] = createSignal("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name: name() }));
-  }
-
-  async function password_show() {
-    setShowPassword(await invoke("password_show", { password: password() }));
-  }
+  // Initialize auth state on app start
+  createEffect(() => {
+    initializeAuth();
+  });
 
   return (
-    <main class="container">
-      <h1>Welcome, {greetMsg()}!</h1>
-      <p>This is a password manager.</p>
+    <ErrorBoundary>
+      <main class="app">
+        <Show when={isLoading()}>
+          <div class="loading-screen">
+            <div class="loading-spinner"></div>
+            <p>Loading...</p>
+          </div>
+        </Show>
 
-      <form
-        class="row"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          await greet();
-          await password_show();
-        }}
-      >
-        <div>
-          <input
-            id="greet-input"
-            onChange={(e) => setName(e.currentTarget.value)}
-            placeholder="Enter a name..."
-            class="inputs"
-            autocomplete="name"
-          />
-          <input
-            id="password-input"
-            onChange={(e) => setPassword(e.currentTarget.value)}
-            placeholder="Enter a password..."
-            class="inputs"
-            type="password"
-            autocomplete="current-password"
-          />
-        </div>
+        <Show when={!isLoading()}>
+          <Show 
+            when={authState().isAuthenticated}
+            fallback={
+              <Show 
+                when={authState().hasMasterPassword}
+                fallback={<Setup />}
+              >
+                <LoginComponent />
+              </Show>
+            }
+          >
+            <Dashboard />
+          </Show>
+        </Show>
 
-        <button type="submit">Greet</button>
-      </form>
-      <p>Your password: {showPassword()}</p>
-    </main>
+        {/* Global Toast Container */}
+        <ToastContainer />
+      </main>
+    </ErrorBoundary>
   );
 }
 
