@@ -1,0 +1,15 @@
+.item-container {
+  padding: 1rem;
+  background-color: red;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.item-container:hover {
+  scale: 105%;
+}
+
+.item-content {
+  display: flex;
+  gap: 2rem;
+}

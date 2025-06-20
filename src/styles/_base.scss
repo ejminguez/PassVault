@@ -1,0 +1,123 @@
+// Reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-md;
+  color: var(--text-primary);
+}
+
+h1 { font-size: $font-size-3xl; }
+h2 { font-size: $font-size-2xl; }
+h3 { font-size: $font-size-xl; }
+h4 { font-size: $font-size-lg; }
+h5 { font-size: $font-size-base; }
+h6 { font-size: $font-size-sm; }
+
+p {
+  margin-bottom: $spacing-lg;
+  color: var(--text-secondary);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-lg;
+  padding-left: $spacing-xl;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Code
+code {
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  background-color: var(--bg-tertiary);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  font-family: $font-family-mono;
+  background-color: var(--bg-tertiary);
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  margin-bottom: $spacing-lg;
+}
+
+// Selection
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+// Focus styles
+:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: $border-radius-full;
+  
+  &:hover {
+    background: var(--color-gray-500);
+  }
+}

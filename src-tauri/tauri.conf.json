@@ -12,13 +12,15 @@
   "app": {
     "windows": [
       {
+        "label": "main",
         "title": "passwordvault",
         "width": 1000,
         "height": 700
       }
     ],
     "security": {
-      "csp": null
+      "csp": null,
+      "capabilities": ["main-capability"]
     }
   },
   "bundle": {
